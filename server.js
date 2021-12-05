@@ -18,7 +18,6 @@ app.get("/:signname", (req, res) => {
         res.redirect("/")
         return
     }
-    res.redirect(signname.toLowerCase())
     res.render("signview", { info: pageinfo })
 })
 
