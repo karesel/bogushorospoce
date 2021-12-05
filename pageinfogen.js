@@ -50,7 +50,7 @@ module.exports = {
             default:
                 throw "Unknown sign: " + signname
         }
-        pageinfo.title = signname.tolowercase().charAt(0).toUpperCase() + signname.slice(1);
+        pageinfo.title = signname.charAt(0).toUpperCase() + signname.slice(1);
 
         //seed
         let date = new Date
