@@ -12,7 +12,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 app.get("/:signname", (req, res) => {
 
     try {
-        var pageinfo = pageinfogen.gen(req.params.signname)
+        var pageinfo = pageinfogen.gen(req.params.signname.toLowerCase())
     } catch (error) {
         console.log(error)
         res.redirect("/")
