@@ -12,56 +12,45 @@ module.exports = {
 
         switch (signname) {
             case "aries":
-                pageinfo.title = "Aries"
                 pageinfo.seed = "01"
                 break
             case "taurus":
-                pageinfo.title = "Taurus"
                 pageinfo.seed = "02"
                 break
             case "gemini":
-                pageinfo.title = "Gemini"
                 pageinfo.seed = "03"
                 break
             case "cancer":
-                pageinfo.title = "Cancer"
                 pageinfo.seed = "04"
                 break
             case "leo":
-                pageinfo.title = "Leo"
                 pageinfo.seed = "05"
                 break
             case "virgo":
-                pageinfo.title = "Virgo"
                 pageinfo.seed = "06"
                 break
             case "libra":
-                pageinfo.title = "Libra"
                 pageinfo.seed = "07"
                 break
             case "scorpio":
-                pageinfo.title = "Scorpio"
                 pageinfo.seed = "08"
                 break
             case "sagittarius":
-                pageinfo.title = "Sagittarius"
                 pageinfo.seed = "09"
                 break
             case "capricorn":
-                pageinfo.title = "Capricorn"
                 pageinfo.seed = "10"
                 break
             case "aquarius":
-                pageinfo.title = "Aquarius"
                 pageinfo.seed = "11"
                 break
             case "pisces":
-                pageinfo.title = "Pisces"
                 pageinfo.seed = "12"
                 break
             default:
                 throw "Unknown sign: " + signname
         }
+        pageinfo.title = signname.charAt(0).toUpperCase() + signname.slice(1);
 
         //seed
         let date = new Date
