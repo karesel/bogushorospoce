@@ -21,7 +21,10 @@ app.get("/:signname", (req, res) => {
     res.render("signview", { info: pageinfo })
 })
 
-app.get("/*", (req, res) => { res.redirect("/") })
+app.get("/*", (req, res) => {
+    console.log("Unknown route: " + req.originalUrl)
+    res.redirect("/")
+})
 
 app.listen(process.env.PORT || 5000)
-console.log("Up at ", process.env.PORT || 5000)
+console.log("Up at: ", process.env.PORT || 5000)
