@@ -1,2 +1,2 @@
-start /b npm run start
+start /b npx nodemon server.js
 start /b lt --port 5000
