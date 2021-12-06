@@ -10,49 +10,30 @@ module.exports = {
             { "data2": "" }
         ]
 
-        switch (signname) {
-            case "aries":
-                pageinfo.seed = "01"
-                break
-            case "taurus":
-                pageinfo.seed = "02"
-                break
-            case "gemini":
-                pageinfo.seed = "03"
-                break
-            case "cancer":
-                pageinfo.seed = "04"
-                break
-            case "leo":
-                pageinfo.seed = "05"
-                break
-            case "virgo":
-                pageinfo.seed = "06"
-                break
-            case "libra":
-                pageinfo.seed = "07"
-                break
-            case "scorpio":
-                pageinfo.seed = "08"
-                break
-            case "sagittarius":
-                pageinfo.seed = "09"
-                break
-            case "capricorn":
-                pageinfo.seed = "10"
-                break
-            case "aquarius":
-                pageinfo.seed = "11"
-                break
-            case "pisces":
-                pageinfo.seed = "12"
-                break
-            default:
-                throw "Unknown sign: " + signname
-        }
-        pageinfo.title = signname.charAt(0).toUpperCase() + signname.slice(1);
+        let singseeds = [
+            { "name": "aries", "seed": "01" },
+            { "name": "taurus", "seed": "02" },
+            { "name": "gemini", "seed": "03" },
+            { "name": "cancer", "seed": "04" },
+            { "name": "leo", "seed": "05" },
+            { "name": "virgo", "seed": "06" },
+            { "name": "libra", "seed": "07" },
+            { "name": "scorpio", "seed": "08" },
+            { "name": "sagittarius", "seed": "09" },
+            { "name": "capricorn", "seed": "10" },
+            { "name": "aquarius", "seed": "11" },
+            { "name": "pisces", "seed": "12" }
+        ]
 
-        //seed
+        singseeds.forEach(element => {
+            if (element.name == signname) {
+                pageinfo.title = element.name.charAt(0).toUpperCase() + element.name.slice(1);
+                pageinfo.seed = element.seed
+            }
+        })
+
+        if (pageinfo.title == "" || pageinfo.seed == "") { throw "Unknown sign: " + signname }
+
         let date = new Date
         let day = date.getDate().toString().padStart(2, '0')
         let mon = (date.getMonth() + 1).toString().padStart(2, '0')
