@@ -37,7 +37,7 @@ module.exports = {
         let date = new Date
         let day = date.getDate().toString().padStart(2, '0')
         let mon = (date.getMonth() + 1).toString().padStart(2, '0')
-        let year = date.getFullYear()
+        let year = date.getFullYear().toString()
         pageinfo.seed = year + mon + day + pageinfo.seed
         var rng = seedrandom(pageinfo.seed);
         pageinfo.data = rng.int32() % 5
@@ -46,5 +46,38 @@ module.exports = {
         pageinfo.data2 < 0 ? pageinfo.data2 *= -1 : pageinfo.data2
 
         return pageinfo
+
+
+        let seed = pageinfo.seed;
+        function seededrandom() {
+            var x = Math.sin(seed++) * 10000;
+            return (x - Math.floor(x));
+        }
+
+        const data = [
+            ['Apples', 10],
+            ['Bananas', 2],
+            ['Carrots', 5],
+            ['Dates', 1],
+            ['Eggplant', 3],
+            ['Figs', 1],
+            ['Gourds', 1],
+        ];
+
+        function weigthedrandom(data) {
+            let total = 0;
+            for (let i = 0; i < data.length; ++i) { total += data[i][1]; }
+
+            const threshold = Math.random() * total;
+            total = 0;
+
+            for (let i = 0; i < data.length - 1; ++i) {
+                total += data[i][1];
+                if (total >= threshold) { return data[i][0]; }
+            }
+            return data[data.length - 1][0];
+        }
+
+
     }
 }
