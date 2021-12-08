@@ -1,55 +1,69 @@
+const arieslines = require("./1")
+const tauruslines = require("./2")
+const geminilines = require("./3")
+const cancerlines = require("./4")
+const leolines = require("./5")
+const virgolines = require("./6")
+const libralines = require("./7")
+const scorpiolines = require("./8")
+const sagittariuslines = require("./9")
+const capricornlines = require("./10")
+const aquariuslines = require("./11")
+const pisceslines = require("./12")
+
 module.exports = {
     gen: function (signname) {
 
-        let pageinfo = [
-            { "title": "" },
-            { "seed": "" },
-            { "data": "" },
-            { "data2": "" }
+        let pageinfo = {
+            "title": "",
+            "seed": "",
+            "luck": "",
+            "horo": ""
+        }
+
+        let signseeds = [
+            { "name": "aries", "seed": "01", "lines": arieslines.arr },
+            { "name": "taurus", "seed": "02", "lines": tauruslines.arr },
+            { "name": "gemini", "seed": "03", "lines": geminilines.arr },
+            { "name": "cancer", "seed": "04", "lines": cancerlines.arr },
+            { "name": "leo", "seed": "05", "lines": leolines.arr },
+            { "name": "virgo", "seed": "06", "lines": virgolines.arr },
+            { "name": "libra", "seed": "07", "lines": libralines.arr },
+            { "name": "scorpio", "seed": "08", "lines": scorpiolines.arr },
+            { "name": "sagittarius", "seed": "09", "lines": sagittariuslines.arr },
+            { "name": "capricorn", "seed": "10", "lines": capricornlines.arr },
+            { "name": "aquarius", "seed": "11", "lines": aquariuslines.arr },
+            { "name": "pisces", "seed": "12", "lines": pisceslines.arr }
         ]
-
-        let singseeds = [
-            { "name": "aries", "seed": "01" },
-            { "name": "taurus", "seed": "02" },
-            { "name": "gemini", "seed": "03" },
-            { "name": "cancer", "seed": "04" },
-            { "name": "leo", "seed": "05" },
-            { "name": "virgo", "seed": "06" },
-            { "name": "libra", "seed": "07" },
-            { "name": "scorpio", "seed": "08" },
-            { "name": "sagittarius", "seed": "09" },
-            { "name": "capricorn", "seed": "10" },
-            { "name": "aquarius", "seed": "11" },
-            { "name": "pisces", "seed": "12" }
-        ]
-
-        singseeds.forEach(element => {
-            if (element.name == signname) {
-                pageinfo.title = element.name.charAt(0).toUpperCase() + element.name.slice(1);
-                pageinfo.seed = element.seed
-            }
-        })
-
-        if (pageinfo.title == "" || pageinfo.seed == "") { throw "Unknown sign: " + signname }
 
         let date = new Date
         let day = date.getDate().toString().padStart(2, '0')
         let mon = (date.getMonth() + 1).toString().padStart(2, '0')
         let year = date.getFullYear().toString()
-        pageinfo.seed = year + mon + day + pageinfo.seed + "00"
 
-        let seed = pageinfo.seed;
+        let seed;
         function seededrandom() {
             var x = Math.sin(seed++) * 10000;
             return (x - Math.floor(x));
         }
 
-        pageinfo.data = Math.floor((seededrandom() * 70) + 31)
-        pageinfo.data2 = Math.floor((seededrandom() * 70) + 31)
 
+        signseeds.forEach(element => {
+            if (element.name == signname) {
+                pageinfo.title = element.name.charAt(0).toUpperCase() + element.name.slice(1);
+                pageinfo.seed = element.seed
+                pageinfo.seed = year + mon + day + pageinfo.seed + "00"
+                seed = pageinfo.seed
+                pageinfo.luck = Math.floor((seededrandom() * 70) + 30)
+                pageinfo.horo = element.lines[Math.floor((seededrandom() * 342))]
+            }
+        })
+
+        if (pageinfo.title == "") { throw "Unknown sign: " + signname }
 
         return pageinfo
 
+        /*
         const data = [
             ['Apples', 10],
             ['Bananas', 2],
@@ -73,7 +87,7 @@ module.exports = {
             }
             return data[data.length - 1][0];
         }
-
+*/
 
     }
 }
