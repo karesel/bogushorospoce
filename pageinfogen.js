@@ -1,5 +1,3 @@
-const seedrandom = require("seedrandom");
-
 module.exports = {
     gen: function (signname) {
 
@@ -38,21 +36,19 @@ module.exports = {
         let day = date.getDate().toString().padStart(2, '0')
         let mon = (date.getMonth() + 1).toString().padStart(2, '0')
         let year = date.getFullYear().toString()
-        pageinfo.seed = year + mon + day + pageinfo.seed
-        var rng = seedrandom(pageinfo.seed);
-        pageinfo.data = rng.int32() % 5
-        pageinfo.data < 0 ? pageinfo.data *= -1 : pageinfo.data
-        pageinfo.data2 = rng.int32() % 5
-        pageinfo.data2 < 0 ? pageinfo.data2 *= -1 : pageinfo.data2
-
-        return pageinfo
-
+        pageinfo.seed = year + mon + day + pageinfo.seed + "00"
 
         let seed = pageinfo.seed;
         function seededrandom() {
             var x = Math.sin(seed++) * 10000;
             return (x - Math.floor(x));
         }
+
+        pageinfo.data = Math.floor((seededrandom() * 70) + 31)
+        pageinfo.data2 = Math.floor((seededrandom() * 70) + 31)
+
+
+        return pageinfo
 
         const data = [
             ['Apples', 10],
