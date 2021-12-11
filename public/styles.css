@@ -1,9 +1,15 @@
 html {
+    padding: 1em;
     font-family: 'Poppins', sans-serif;
 }
 
-.grid {
+body {
     width: 80%;
+    margin: auto;
+}
+
+.grid {
+    width: 95%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -23,6 +29,21 @@ div.signimage {
 div.signtext {
     margin: auto;
     text-align: center;
+}
+
+.bar {
+    margin: auto;
+    background-color: #555;
+    width: 80%;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+.barprogress {
+    background-image: linear-gradient(to right, red, yellow, green);
+    background-attachment: fixed;
+    height: 2rem;
+    border-radius: 1rem;
 }
 
 small {

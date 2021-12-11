@@ -8,18 +8,34 @@
     <title>
         <%= info.title %>
     </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div><a href="/">back</a></div>
+    <div>
+        <a href="/" style="background-color: #555; border-radius: 0.25rem;">
+            &#60; back
+        </a>
+    </div>
 
-    <%= info.title %>
-        <div>
-            Luck:<%= info.luck %>
+    <div>
+        <h1>
+            <%= info.title %>
+        </h1>
+
+        <div class="bar">
+            <div class="barprogress" style="width: <%= info.luck %>%;">
+                <h3>Luck: <%= info.luck %></h3>
+            </div>
         </div>
+
         <div>
             <%= info.horo %>
         </div>
+    </div>
 
 
 
