@@ -1,0 +1,43 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+.grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+div.sign {
+    display: flex;
+    border-radius: 0.25rem;
+    background-color: #555;
+}
+
+div.signimage {
+    margin: auto;
+}
+
+div.signtext {
+    margin: auto;
+    text-align: center;
+}
+
+small {
+    filter: grayscale(50%);
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (max-width: 800px) {
+   
+    .grid {
+        grid-template-columns: 1fr;
+    }
+  }
+  
