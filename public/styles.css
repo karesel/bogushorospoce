@@ -25,6 +25,7 @@ header {
 div.sign {
     padding: 10px;
     display: flex;
+    white-space: nowrap;
     border-radius: 0.25rem;
     transition: transform .2s
 }
