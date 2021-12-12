@@ -34,8 +34,7 @@ module.exports = {
             "title": "",
             "seed": "",
             "luck": "",
-            "horo": "",
-            "date": datenow
+            "horo": ""
         }
 
         let signseeds = [
