@@ -14,31 +14,22 @@
 
 <body>
     <div>
-        <a href="/" style="background-color: rgb(0, 136, 199); border-radius: 0.25rem;">
-            &#60; back
-        </a>
+        <a href="/" class="button">&#60; back</a>
     </div>
 
     <div>
-        <h1>
-            <%= info.title %>
-        </h1>
+        <h1><%= info.title %></h1>
 
         <div class="bar">
             <div class="barprogress" style="width: <%= info.luck %>%;">
-                <h3 style="margin-left: 5%;">Luck: <%= info.luck %>
-                </h3>
+                <h3 style="margin-left: 5%;">Luck: <%= info.luck %></h3>
             </div>
         </div>
-        <br></br>
+        
+        <br>
 
-        <div>
-            <%= info.horo %>
-        </div>
+        <div style="width: 95%; margin: auto;"><%= info.horo %></div>
     </div>
-
-
-
 
 </body>
 
