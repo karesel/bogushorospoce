@@ -8,6 +8,12 @@ body {
     margin: auto;
 }
 
+header {
+    display:flexbox;
+    flex-direction: row;
+    overflow: auto;
+}
+
 .grid {
     width: 95%;
     margin: auto;
