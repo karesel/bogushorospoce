@@ -12,13 +12,30 @@ const aquariuslines = require("./11")
 const pisceslines = require("./12")
 
 module.exports = {
+    currdate: function () {
+        let date = new Date
+        let day = date.getDate().toString().padStart(2, '0')
+        let mon = (date.getMonth() + 1).toString().padStart(2, '0')
+        let year = date.getFullYear().toString()
+
+        let datenow = day + "/" + mon + "/" + year
+        return datenow
+    },
     gen: function (signname) {
+
+        let date = new Date
+        let day = date.getDate().toString().padStart(2, '0')
+        let mon = (date.getMonth() + 1).toString().padStart(2, '0')
+        let year = date.getFullYear().toString()
+
+        let datenow = day + "/" + mon + "/" + year
 
         let pageinfo = {
             "title": "",
             "seed": "",
             "luck": "",
-            "horo": ""
+            "horo": "",
+            "date": datenow
         }
 
         let signseeds = [
@@ -36,17 +53,11 @@ module.exports = {
             { "name": "pisces", "seed": "12", "lines": pisceslines.arr }
         ]
 
-        let date = new Date
-        let day = date.getDate().toString().padStart(2, '0')
-        let mon = (date.getMonth() + 1).toString().padStart(2, '0')
-        let year = date.getFullYear().toString()
-
         let seed;
         function seededrandom() {
             var x = Math.sin(seed++) * 10000;
             return (x - Math.floor(x));
         }
-
 
         signseeds.forEach(element => {
             if (element.name == signname) {

@@ -17,13 +17,14 @@ body {
 }
 
 div.sign {
+    padding: 10px;
     display: flex;
     border-radius: 0.25rem;
-    background-color: #555;
 }
 
 div.signimage {
     margin: auto;
+    max-width:80px
 }
 
 div.signtext {
@@ -44,10 +45,6 @@ div.signtext {
     background-attachment: fixed;
     height: 2rem;
     border-radius: 1rem;
-}
-
-small {
-    filter: grayscale(50%);
 }
 
 a {

@@ -5,12 +5,11 @@ const app = express()
 app.set("view engine", "ejs")
 app.use(express.static("public"))
 
-app.get("/", (req, res) => { res.render("index") })
+app.get("/", (req, res) => { res.render("index", { currentdate: pageinfogen.currdate() }) })
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.get("/:signname", (req, res) => {
-
     try {
         var pageinfo = pageinfogen.gen(req.params.signname.toLowerCase())
     } catch (error) {
