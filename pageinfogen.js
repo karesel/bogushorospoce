@@ -12,15 +12,6 @@ const aquariuslines = require("./11")
 const pisceslines = require("./12")
 
 module.exports = {
-    currdate: function () {
-        let date = new Date
-        let day = date.getDate().toString().padStart(2, '0')
-        let mon = (date.getMonth() + 1).toString().padStart(2, '0')
-        let year = date.getFullYear().toString()
-
-        let datenow = day + "/" + mon + "/" + year
-        return datenow
-    },
     gen: function (signname) {
 
         let date = new Date
